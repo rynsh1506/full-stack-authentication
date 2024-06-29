@@ -110,5 +110,3 @@
    ```
    
    use `dev` to run in watch mode.
-
-   Add `:dev` to run in watch mode without building first.
