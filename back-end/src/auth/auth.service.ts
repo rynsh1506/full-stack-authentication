@@ -25,6 +25,10 @@ export class AuthService {
   ) {}
 
   async createUser(payload: CreateUserDto): Promise<Token> {
+    if (payload.username === '' || payload.password === '') {
+      throw new BadRequestException('Invalid username and password');
+    }
+
     const hashedPassword = await this.passwordService.hashPassword(
       payload.password,
     );

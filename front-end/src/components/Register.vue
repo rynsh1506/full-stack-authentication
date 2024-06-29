@@ -26,6 +26,12 @@
           <router-link to="/login" class="text-blue-500 hover:text-blue-700">Login</router-link>
         </p>
       </div>
+      <div v-if="errorMessage" class="text-red-600 mt-4 text-center">
+        {{ errorMessage }}
+      </div>
+      <div v-if="successMessage" class="text-green-500 mt-4 text-center">
+        {{ successMessage }}
+      </div>
     </div>
   </div>
 </template>
@@ -37,18 +43,23 @@ import { registerUser } from '../api/auth';
 
 const username = ref('');
 const password = ref('');
+const errorMessage = ref('');
+const successMessage = ref('');
 
 const router = useRouter();
 
 const handleSubmit = async () => {
   try {
     const response = await registerUser(username.value, password.value);
-    localStorage.setItem('accessToken', response.accessToken);
-    localStorage.setItem('refreshToken', response.refreshToken);
     console.log('Registration successful:', response);
-    router.push('/');
+    successMessage.value = 'Account created successfully!';
+    errorMessage.value = '';
+    setTimeout(() => {
+      router.push('/login');
+    }, 2000);
   } catch (error) {
     console.error('Registration failed:', error);
+    errorMessage.value = error as string
   }
 };
 </script>
