@@ -75,3 +75,40 @@
    ```
 
    Add `:dev` to run in watch mode without building first.
+
+## Frontend
+
+### Install
+
+1. Navigate to the `front-end` directory and run:
+
+   ```bash
+   yarn install
+   ```
+
+   or
+
+   ```bash
+   npm install
+   ```
+
+   (yarn is recommended).
+
+
+### Run
+
+1. Start the server:
+
+   ```bash
+   yarn start
+   ```
+
+   or
+
+   ```bash
+   npm run start
+   ```
+   
+   use `dev` to run in watch mode.
+
+   Add `:dev` to run in watch mode without building first.
