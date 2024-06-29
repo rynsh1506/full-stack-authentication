@@ -1,6 +1,3 @@
-Baik, saya akan memisahkan dan menampilkan konten README.md secara lengkap dan terintegrasi dari bagian yang telah Anda sebutkan:
-
-```markdown
 # Full-Stack Authentication Project Setup
 
 ## Backend
@@ -78,6 +75,3 @@ Baik, saya akan memisahkan dan menampilkan konten README.md secara lengkap dan t
    ```
 
    Add `:dev` to run in watch mode without building first.
-```
-
-Silakan salin dan tempelkan konten di atas ke dalam file `README.md` di dalam proyek Anda. Ini memberikan panduan lengkap untuk setup proyek full-stack authentication Anda, terfokus pada setup backend.
