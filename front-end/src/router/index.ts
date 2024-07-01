@@ -26,13 +26,15 @@ router.beforeEach(
     next: NavigationGuardNext
   ) => {
     const isAuthenticated =
-      localStorage.getItem("accessToken") &&
-      localStorage.getItem("refreshToken");
+      !!localStorage.getItem("accessToken") &&
+      !!localStorage.getItem("refreshToken");
 
-    // Path yang diizinkan tanpa autentikasi
-    const publicPaths = ["/login", "/register"];
+    // Paths that should only be accessible if the user is not authenticated
+    const authPaths = ["/login", "/register"];
 
-    if (!publicPaths.includes(to.path) && !isAuthenticated) {
+    if (authPaths.includes(to.path) && isAuthenticated) {
+      next("/");
+    } else if (!authPaths.includes(to.path) && !isAuthenticated) {
       next("/login");
     } else {
       next();
