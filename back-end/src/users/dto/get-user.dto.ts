@@ -5,6 +5,9 @@ export class GetUserDto {
   id: string;
 
   @AutoMap()
+  name: string;
+
+  @AutoMap()
   username: string;
 
   @AutoMap()

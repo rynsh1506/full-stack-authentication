@@ -5,6 +5,9 @@ export class User {
   id: string;
 
   @AutoMap()
+  name: string;
+
+  @AutoMap()
   username: string;
 
   @AutoMap()

@@ -3,11 +3,13 @@ import {API_BASE_URL} from "../config";
 import {handleApiError, ResponseError} from "./error";
 
 export const registerUser = async (
+  name: string,
   username: string,
   password: string
 ): Promise<any> => {
   try {
     const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
+      name,
       username,
       password,
     });

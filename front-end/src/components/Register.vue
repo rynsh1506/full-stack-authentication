@@ -3,6 +3,12 @@
     <div class="w-full max-w-md">
       <h1 class="text-3xl font-bold text-center mb-6">Register Page</h1>
       <form @submit.prevent="handleSubmit" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+          <input v-model="name" id="name" type="text" placeholder="Name"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
         <div class="mb-4">
           <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
           <input v-model="username" id="username" type="text" placeholder="Username"
@@ -41,6 +47,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { registerUser } from '../api/auth';
 
+const name = ref('');
 const username = ref('');
 const password = ref('');
 const errorMessage = ref('');
@@ -50,7 +57,7 @@ const router = useRouter();
 
 const handleSubmit = async () => {
   try {
-    const response = await registerUser(username.value, password.value);
+    const response = await registerUser(name.value, username.value, password.value);
     console.log('Registration successful:', response);
     successMessage.value = 'Account created successfully!';
     errorMessage.value = '';

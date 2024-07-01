@@ -4,6 +4,7 @@ import {API_BASE_URL} from "../config";
 
 interface User {
   id: number;
+  name: string;
   username: string;
 }
 

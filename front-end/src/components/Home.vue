@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="text-center">
       <h1 class="text-5xl font-bold mb-4">Home Page</h1>
-      <p class="text-2xl mb-4">Welcome to the Home page, {{ username }}</p>
+      <p class="text-2xl mb-4">Welcome to the Home page, {{ name }}</p>
       <button @click="logout" class="px-4 py-2 bg-blue-500 text-white rounded">
         Logout
       </button>
@@ -16,7 +16,7 @@ import { getUser } from '../api/user';
 import { jwtDecode } from 'jwt-decode';
 import { useRouter } from 'vue-router';
 
-const username = ref<string>('');
+const name = ref<string>('');
 const router = useRouter();
 
 const decodeAccessToken = (): number | null => {
@@ -38,7 +38,7 @@ onMounted(async () => {
   if (userId) {
     try {
       const user = await getUser(userId);
-      username.value = user.username;
+      name.value = user.name;
     } catch (error) {
       console.error('Failed to fetch user:', error);
     }

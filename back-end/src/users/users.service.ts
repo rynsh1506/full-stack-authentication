@@ -15,6 +15,13 @@ export class UsersService {
   async findOne(id: string) {
     const user = await this.prisma.user.findFirst({
       where: { id },
+      select: {
+        id: true,
+        name: true,
+        username: true,
+        created_at: true,
+        updated_at: true,
+      },
     });
     return this.mapper.map(user, User, GetUserDto);
   }
@@ -26,6 +33,7 @@ export class UsersService {
       take,
       select: {
         id: true,
+        name: true,
         username: true,
         created_at: true,
         updated_at: true,

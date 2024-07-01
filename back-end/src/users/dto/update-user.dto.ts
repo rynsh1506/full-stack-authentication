@@ -7,6 +7,9 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   id: string;
 
   @AutoMap()
+  name: string;
+
+  @AutoMap()
   username: string;
 
   @AutoMap()
