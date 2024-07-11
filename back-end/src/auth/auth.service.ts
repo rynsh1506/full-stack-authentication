@@ -25,8 +25,16 @@ export class AuthService {
   ) {}
 
   async createUser(payload: CreateUserDto): Promise<Token> {
-    if (payload.username === '' || payload.password === '') {
-      throw new BadRequestException('Invalid username and password');
+    if (
+      payload.name === '' ||
+      payload.username === '' ||
+      payload.password === ''
+    ) {
+      throw new BadRequestException('Invalid name, username and password');
+    }
+
+    if (payload.password.length < 8) {
+      throw new BadRequestException('Password must 8 char');
     }
 
     const hashedPassword = await this.passwordService.hashPassword(

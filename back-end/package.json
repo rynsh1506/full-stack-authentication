@@ -31,7 +31,7 @@
     "start:db": "npm run migrate:dev && npm run prisma:generate && npm run seed",
     "seed": "prisma db seed",
     "postinstall": "npm run prisma:generate",
-    "docker": "docker-compose up -d"
+    "docker": "docker compose up -d"
   },
   "dependencies": {
     "@automapper/classes": "^8.7.7",
